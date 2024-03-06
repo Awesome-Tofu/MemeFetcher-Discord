@@ -7,7 +7,7 @@ const config = require('./config.js');
 console.log('\x1b[31m%s\x1b[0m', 'Make sure to join the server of channel ID from the account you use the token from');
 
 app.get('/', (req, res) => {
-    res.redirect('/meme');
+    res.json({ use: '/meme' });
 });
 
 client.on('ready', () => {

@@ -4,7 +4,7 @@ This is a Discord self-bot that fetches random memes from specified channels and
 
 ## Setup
 
-1. Clone this repository and `cd MemeFetcher-Discord`.
+1. Clone this repository through `git clone https://github.com/Awesome-Tofu/MemeFetcher-Discord` and `cd MemeFetcher-Discord`.
 2. Install the necessary dependencies with `npm install`.
 3. Edit the `config.js` file in the root directory with the following structure:
 

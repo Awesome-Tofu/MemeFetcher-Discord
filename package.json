@@ -1,7 +1,7 @@
 {
-  "name": "discord-selfbot",
-  "version": "1.0.0",
-  "description": "",
+  "name": "memefetcher-discord",
+  "version": "1.0.2",
+  "description": "This is a Discord self-bot that fetches random memes from specified channels and serves them through an [Express.js](https://expressjs.com/) web server and uses [discord.js-selfbot-v13](https://github.com/aiko-chan-ai/discord.js-selfbot-v13/) in backend.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +11,21 @@
   "dependencies": {
     "discord.js-selfbot-v13": "^3.1.4",
     "express": "^4.18.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Awesome-Tofu/MemeFetcher-Discord.git"
+  },
+  "keywords": [
+    "Meme-API",
+    "meme",
+    "discord",
+    "discord-meme-fetch",
+    "discord-channel"
+  ],
+  "bugs": {
+    "url": "https://github.com/Awesome-Tofu/MemeFetcher-Discord/issues"
+  },
+  "homepage": "https://github.com/Awesome-Tofu/MemeFetcher-Discord#readme"
 }
