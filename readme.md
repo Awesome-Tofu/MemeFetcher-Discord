@@ -10,10 +10,12 @@ This is a Discord self-bot that fetches random memes from specified channels and
 
 ```javascript
 module.exports = {
-    TOKEN: 'your-discord-token',
-    CHANNEL_IDs: ['channel-id-1', 'channel-id-2', 'channel-id-3']
+    TOKEN: process.env.TOKEN || "your-discord-token",
+    CHANNEL_IDs: ["channel_id1", "channel_id2", "you can add more this way..."]
 };
 ```
+
+If you dont want to add your TOKEN here, you can add in `.env` file. I would prefer you to add it in environment.
 
 Replace `'your-discord-token'` with your [Discord token](https://github.com/aiko-chan-ai/discord.js-selfbot-v13/blob/main/README.md#get-token-) and `'channel-id-1', 'channel-id-2', 'channel-id-3'` with the IDs of the channels you want to fetch memes from.
 
