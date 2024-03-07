@@ -16,6 +16,12 @@ app.get('/', (req, res) => {
     });
 });
 
+let requestCount = {
+    meme: 0,
+    image: 0,
+    video: 0
+}
+
 client.on('ready', () => {
     //   console.log(`Logged in as ${client.user.tag}!`);
     console.log('\x1b[32m%s\x1b[0m\x1b[33m%s\x1b[0m', 'Logged in as ', client.user.tag + '!');
@@ -40,6 +46,7 @@ client.on('ready', () => {
             let selectedAttachment;
 
             if (type === 'image') {
+                requestCount.image++;
                 // Filter out attachments with content type starting with 'image/'
                 const imageAttachments = attachments.filter(attachment => attachment.contentType.startsWith('image/'));
 
@@ -51,6 +58,7 @@ client.on('ready', () => {
                     res.status(404).send("No image attachments found.");
                 }
             } else if (type === 'video') {
+                requestCount.video++;
                 // Filter out attachments with content type starting with 'video/'
                 const videoAttachments = attachments.filter(attachment => attachment.contentType.startsWith('video/'));
 
@@ -62,6 +70,7 @@ client.on('ready', () => {
                     res.status(404).send("No video attachments found.");
                 }
             } else {
+                requestCount.meme++;
                 // Select a random message
                 const randomMessage = messages.random();
                 if (randomMessage.attachments.size > 0) {
@@ -105,6 +114,10 @@ client.on('ready', () => {
         });
     });
 
+});
+
+app.get('/traffic', (req, res) => {
+    res.json({ totalRequests: requestCount });
 });
 
 // Log in to Discord
