@@ -29,7 +29,7 @@ To get Dicord token, go [here](https://github.com/aiko-chan-ai/discord.js-selfbo
 
 To get the ID of a channel in Discord, you can follow these steps:
 
-1. **Enable Developer Mode:** Go to your Discord settings, then navigate to the "Appearance" tab. Under the "Advanced" section, toggle on "Developer Mode".
+1. **Enable Developer Mode:** Go to your Discord settings, then navigate to the "Advanced" tab. Under the "Advanced" section, toggle on "Developer Mode".
 2. **Right-click the Channel:** Once Developer Mode is enabled, go back to your Discord server. Right-click on the meme channel whose ID you want to obtain.
 3. **Select "Copy ID":** After right-clicking on the channel, you should see an option to "Copy ID". Click on it, and the ID of the channel will be copied to your clipboard.
 4. **Paste the ID:** You can now paste the channel ID wherever you need it, such as in your code or in any other Discord-related context.
