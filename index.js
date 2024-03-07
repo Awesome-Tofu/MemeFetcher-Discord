@@ -8,7 +8,11 @@ console.log('\x1b[31m%s\x1b[0m', 'Make sure to join the server of channel ID fro
 
 app.get('/', (req, res) => {
     res.json({
-        use: '/meme'
+        use: '/meme',
+        optional_params: {
+            type: 'image or video',
+            channel: 'channel id'
+        }
     });
 });
 
@@ -32,7 +36,7 @@ client.on('ready', () => {
         }).then((messages) => {
             // Filter out messages with no attachments
             const attachments = JSON.parse(`${JSON.stringify(messages.flatMap(message => message.attachments))}`.replace(/=> MessageAttachment/g, ':').replace(/flags: AttachmentFlags { bitfield: 0 }/g, ''));
-            
+
             let selectedAttachment;
 
             if (type === 'image') {
@@ -44,7 +48,7 @@ client.on('ready', () => {
 
                     selectedAttachment = randomImageAttachment;
                 } else {
-                    console.log("No image attachments found.");
+                    res.status(404).send("No image attachments found.");
                 }
             } else if (type === 'video') {
                 // Filter out attachments with content type starting with 'video/'
@@ -55,11 +59,19 @@ client.on('ready', () => {
 
                     selectedAttachment = randomImageAttachment;
                 } else {
-                    console.log("No video attachments found.");
+                    res.status(404).send("No video attachments found.");
                 }
             } else {
-                // If no type is specified, select a random attachment
-                selectedAttachment = attachments.random();
+                // Select a random message
+                const randomMessage = messages.random();
+                if (randomMessage.attachments.size > 0) {
+                    const randomAttachment = randomMessage.attachments.random();
+                    // console.log(`Found random media attachment: ${randomAttachment.url}`);
+                    selectedAttachment = randomAttachment;
+                } else {
+                    console.log('No media attachments found in the random message.');
+                    res.status(404).send('No media attachments found in the random message.');
+                }
             }
 
             if (selectedAttachment) {
@@ -105,5 +117,5 @@ if (!TOKEN) {
 client.login(TOKEN);
 
 app.listen(PORT, () => {
-    console.log('Server is ready');
+    console.log('Server is ready. http://localhost:' + PORT + '/');
 });
