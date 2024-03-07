@@ -38,7 +38,15 @@ To get the ID of a channel in Discord, you can follow these steps:
 
 Start the bot with `node index.js` or `npm start`. The bot will log into Discord and start the web server.
 
-You can then access the `/meme` route on `localhost:3000` to fetch a random message with a media attachment from the specified channels. If no media attachments are found, the server will respond with a 404 error.
+You can then access the `/meme` route on `localhost:3000` to fetch a random message with a media attachment from the specified channels. You can also specify the type of media you want (image or video) and the channel from which to fetch messages using query parameters:
+
+- `type`: Set this to `'image'` to fetch an image attachment, or `'video'` to fetch a video attachment. If not specified or if set to any other value, a random attachment will be fetched.
+- `channel`: Set this to the ID of a channel to fetch messages from that channel. If not specified, messages will be fetched from a random channel. Make sure bot is in the server of the channel ID.
+
+For example, to fetch an image from a specific channel, you would use a URL like this: `localhost:3000/meme?type=image&channel=channel-id`
+
+If no media attachments are found, the server will respond with a 404 error.
+
 
 ## Note
 
