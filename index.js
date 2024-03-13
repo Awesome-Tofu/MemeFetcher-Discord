@@ -1,10 +1,14 @@
 const Discord = require('discord.js-selfbot-v13');
 const client = new Discord.Client();
 const express = require('express');
+const cprs = require('cors');
 const PORT = process.env.PORT || 3000;
 const app = express();
 const config = require('./config.js');
 console.log('\x1b[31m%s\x1b[0m', 'Make sure to join the server of channel ID from the account you use the token from');
+
+
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.json({
