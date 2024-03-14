@@ -1,7 +1,7 @@
 const Discord = require('discord.js-selfbot-v13');
 const client = new Discord.Client();
 const express = require('express');
-const cprs = require('cors');
+const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 const app = express();
 const config = require('./config.js');
