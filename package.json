@@ -1,6 +1,6 @@
 {
   "name": "memefetcher-discord",
-  "version": "3.0.0",
+  "version": "3.2.0",
   "description": "This is a Discord self-bot that fetches random memes from specified channels and serves them through an [Express.js](https://expressjs.com/) web server and uses [discord.js-selfbot-v13](https://github.com/aiko-chan-ai/discord.js-selfbot-v13/) in backend.",
   "main": "index.js",
   "scripts": {
